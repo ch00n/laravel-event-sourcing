@@ -22,6 +22,11 @@ abstract class AggregateRoot
 
     protected static bool $allowConcurrency = false;
 
+    /**
+     * @param string $uuid
+     *
+     * @return static
+     */
     public static function retrieve(string $uuid): self
     {
         $aggregateRoot = (new static());
@@ -145,7 +150,7 @@ abstract class AggregateRoot
                 $this->uuid,
                 $this->aggregateVersionAfterReconstitution,
                 $latestPersistedVersionId,
-                );
+            );
         }
     }
 
